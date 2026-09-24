@@ -1,0 +1,367 @@
+{
+  "_meta": {
+    "source": "https://edurodrigues.com.br/",
+    "scrapedAt": "2026-09-24",
+    "platform": "WordPress 6.9.9 + tema 'construction' 1.0.4 + WPBakery 7.9 + Slider Revolution 6.7.18 + Contact Form 7 6.1.5, atrás do Cloudflare",
+    "note": "Textos transcritos literalmente (incluindo erros de digitação originais). Caminhos de assets relativos à pasta scrape/."
+  },
+
+  "site": {
+    "name": "Eduardo Rodrigues",
+    "htmlTitle": "Eduardo Rodrigues – Locutor e Mestre de Cerimonias",
+    "logo": { "file": "assets/brand/Edulogo.gif", "width": 298, "height": 115, "text": "Eduardo Rodrigues — locutor e jornalista" },
+    "favicon": { "file": "assets/brand/cropped-favicon-1.png", "note": "Ícone placeholder do tema 'construction' (casinha amarela), não é da marca" },
+    "accentColor": "#ffc925",
+    "fonts": ["Montserrat (300–700)", "Lato (400, 400i)"],
+    "copyright": "Copyright©2020 Todos os direitos reservados.",
+    "credit": { "label": "Powered by: ColetivaWeb", "href": "https://www.coletivaweb.com.br/" },
+    "gtmContainer": "GTM-599783W"
+  },
+
+  "contact": {
+    "address": {
+      "street": "Avenida Nova Cantareira, 2233 – Conjunto 81",
+      "neighborhood": "Tucuruvi",
+      "city": "São Paulo",
+      "state": "SP",
+      "zip": "02331-003"
+    },
+    "phones": [
+      { "display": "(11) 2261-2753", "e164": "+551122612753", "type": "fixo" },
+      { "display": "(11) 99615-9398", "e164": "+5511996159398", "type": "celular (provável WhatsApp — confirmar)" }
+    ],
+    "phonesRaw": "(11)2261-2753 e (11)99615-9398",
+    "emails": [
+      { "address": "edulocutor@terra.com.br", "shownOn": "rodapé de todas as páginas" },
+      { "address": "locutor@edurodrigues.com.br", "shownOn": "página /contato" }
+    ],
+    "map": {
+      "placeName": "Eduardo Rodrigues Locutor",
+      "lat": -23.47593578608751,
+      "lng": -46.6141909345988,
+      "embedSrc": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d914.89273894777!2d-46.6141909345988!3d-23.47593578608751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cef71111aa4d2f%3A0xca7a186f4de4df4!2sEduardo%20Rodrigues%20Locutor!5e0!3m2!1spt-BR!2sbr!4v1626956347563!5m2!1spt-BR!2sbr"
+    },
+    "social": [
+      { "network": "facebook", "href": "https://www.facebook.com/eduardorodriguesavoz" },
+      { "network": "instagram", "href": "https://www.instagram.com/edu.locutor/" },
+      { "network": "linkedin", "href": "https://www.linkedin.com/in/eduardo-rodrigues-4969007b/" }
+    ],
+    "youtubeChannels": [
+      { "handle": "@eduvoiceestudio", "href": "https://www.youtube.com/@eduvoiceestudio", "note": "hospeda 12 dos 13 vídeos do portfólio" },
+      { "handle": "@eduvoice7370", "href": "https://www.youtube.com/@eduvoice7370", "note": "hospeda o vídeo Brastemp" }
+    ],
+    "form": {
+      "provider": "Contact Form 7 (id 1293)",
+      "fields": [
+        { "label": "Nome", "name": "your-name", "type": "text", "required": true },
+        { "label": "Email", "name": "your-subject", "type": "text", "required": false, "bug": "campo de e-mail usa o nome 'your-subject' e não é validado como e-mail" },
+        { "label": "Mensagem", "name": "your-message", "type": "textarea", "required": false }
+      ],
+      "submitLabel": "Enviar",
+      "shownOn": ["rodapé de todas as páginas", "/contato"]
+    }
+  },
+
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "Serviços", "href": "/servicos/" },
+    {
+      "label": "Galeria",
+      "href": "#",
+      "children": [
+        { "label": "Corporativo", "href": "/corporativo/" },
+        { "label": "Eduardo Rodrigues", "href": "/eduardo-rodrigues/" },
+        { "label": "Estúdio", "href": "/estudio/" },
+        { "label": "Festas", "href": "/festas/" },
+        { "label": "Formaturas", "href": "/formaturas/" }
+      ]
+    },
+    { "label": "Clientes", "href": "/clientes/" },
+    { "label": "Portfólio", "href": "/meu-portfolio/" },
+    { "label": "Contato", "href": "/contato/" }
+  ],
+
+  "topBar": {
+    "text": "Avenida Nova Cantareira, 2233 – Conjunto 81 Tucuruvi, São Paulo – SP 02331-003 · (11)2261-2753 e (11)99615-9398",
+    "socials": ["facebook", "instagram", "linkedin"]
+  },
+
+  "pages": {
+    "home": {
+      "url": "https://edurodrigues.com.br/",
+      "wpId": 70,
+      "lastModified": "2021-06-30",
+      "sections": [
+        {
+          "type": "hero",
+          "effect": "slideshow de fundo com fade (Vegas.js), 3 imagens; títulos rotativos",
+          "backgroundImages": [
+            "assets/hero/eventos-corporativos-eduardo-rodrigues.jpg",
+            "assets/hero/locucao-eduardo-rodrigues.jpg",
+            "assets/hero/realizacao-de-congressos-eduardo-rodrigues.jpg"
+          ],
+          "rotatingTitles": [
+            "Locução publicitária",
+            "Voice Over",
+            "Mestre de cerimônias",
+            "Narrações",
+            "Apresentador",
+            "Docente Curso de Rádio",
+            "Palestrante"
+          ],
+          "scrollArrowTarget": "#services"
+        },
+        {
+          "type": "profile",
+          "heading": "Perfil",
+          "image": "assets/profile/IMG-20210325-WA0053.jpg",
+          "toggleTitle": "Um profissional versátil e experiente, que atua em diversos setores da comunicação, com um vasto portifólio. Trabalhos que tem como marca principal a qualidade e empenho.",
+          "toggleContent": [
+            "Com uma longa e reconhecida carreira de mais de 26 anos Eduardo Rodrigues fez da sua profissão um exemplo para muitos. Formado pelo SENAC nos cursos de Radialista, Locução Publicitária, Locução para FM e Locução noticiarista, se destacou e se superou nestes anos de estudos e trabalho se tornando docente da mesma instituição que o formou.",
+            "Seu profissionalismo e excelência tanto como locutor e como apresentador,  trouxeram oportunidades de trabalhar em grandes emissoras de rádio e também televisivas. Atualmente além deste trabalho, Eduardo Rodrigues possui uma empresa de produção áudio visual e de eventos, atua também como mestre de cerimônias e celebrante.",
+            "Sua missão é ser a melhor opção para os seus clientes, dispondo sempre de soluções inovadoras e personalizadas que superem as expectativas dos mesmos, levando credibilidade e confiança."
+          ]
+        },
+        {
+          "type": "logoCarousel",
+          "id": "services",
+          "heading": "Clientes e Parceiros",
+          "ref": "clients"
+        },
+        {
+          "type": "richText",
+          "heading": "Outras Informações",
+          "education": [
+            "Direito – FIG – UNIMESP",
+            "Jornalismo – Mackenzie",
+            "Oratória – Instituto Reinaldo Polito"
+          ],
+          "careerHeading": "TRAJETÓRIA NO MERCADO",
+          "career": [
+            {
+              "group": "Trabalhos como locutor e narrador",
+              "items": [
+                { "org": "Rádio Boa Nova AM" },
+                { "org": "Rede American SAT" },
+                { "org": "Rádio Atual AM" },
+                { "org": "Rádio Trianon – AM" },
+                { "org": "Rádio Lider FM" },
+                { "org": "HBO Brasil" },
+                { "org": "History Chanel", "role": "Locutor de chamadas" },
+                { "org": "TV Mais ABC", "role": "Locutor de chamadas" }
+              ],
+              "note": "Na página original, 'History Chanel' e 'Locutor de chamadas' aparecem como parágrafos soltos após a lista; a associação org→função acima é a leitura mais provável — confirmar com o cliente."
+            },
+            {
+              "group": "Trabalho como Docente",
+              "items": [ { "org": "SENAC", "role": "Curso de Profissionalizante Locução" } ]
+            },
+            {
+              "group": "Trabalhos como Apresentador",
+              "items": [
+                { "org": "Canal Magistral", "role": "Programa Magistral" },
+                { "org": "TV Band", "role": "Programa de varejo" },
+                { "org": "TV Gazeta" },
+                { "org": "TV Bandeirantes" },
+                { "org": "REDE TV" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "servicos": {
+      "url": "https://edurodrigues.com.br/servicos/",
+      "wpId": 1462,
+      "lastModified": "2021-01-27",
+      "title": "Serviços",
+      "services": [
+        { "name": "Locutor", "description": "Produz spots (rádio e TV), vinhetas, institucionais, narrações, treinamentos, chamadas e programas eleitorais" },
+        { "name": "Apresentador", "description": "Jornalista e entrevistador" },
+        { "name": "Mestre de Cerimônias", "description": "Formaturas, congressos, seminários, simpósios, mesas redondas, painéis e muito mais." },
+        { "name": "Celebrante", "description": "Casamento, Bodas, Debutante e outros." }
+      ]
+    },
+
+    "galleries": {
+      "_note": "Menu 'Galeria' com 5 subpáginas. Cada foto é exibida como crop 400x400 com legenda embaixo; a pasta assets/ tem os originais.",
+      "corporativo": {
+        "url": "https://edurodrigues.com.br/corporativo/",
+        "wpId": 1405,
+        "title": "Corporativo",
+        "items": [
+          { "file": "assets/gallery/corporativo/eduardo-rodrigues-eventos-corporativo-2012-adh.jpg", "caption": "Conduzindo Congresso Nacional de Saúde-São Camilo-ExpoCenter Norte" },
+          { "file": "assets/gallery/corporativo/eduardo-rodrigues-eventos-corporativo-2016-xxvii-enangrad.jpg", "caption": "Congresso de Educação – Enangrad – Campinas" },
+          { "file": "assets/gallery/corporativo/eduardo-rodrigues-eventos-corporativo-2016.jpg", "caption": "Apresentando Congresso da Angrad – São Paulo" },
+          { "file": "assets/gallery/corporativo/eduardo-rodrigues-eventos-corporativo-2016-ix-senangrad.jpg", "caption": "Seminário Educacional-Sede Mackenzie-SP" },
+          { "file": "assets/gallery/corporativo/eduardo-rodrigues-eventos-corporativo-xv-congresso-ibgc.jpg", "caption": "15o.Congresso IBCG-Anhembi-SP" }
+        ]
+      },
+      "eduardo-rodrigues": {
+        "url": "https://edurodrigues.com.br/eduardo-rodrigues/",
+        "wpId": 1414,
+        "title": "Eduardo Rodrigues",
+        "items": [
+          { "file": "assets/gallery/eduardo-rodrigues/eduardo-rodrigues-web-radio-2009-v02.jpg", "caption": "Apresentador" },
+          { "file": "assets/gallery/eduardo-rodrigues/eduardo-rodrigues-web-radio-2009-v04.jpg", "caption": "Mestre de Cerimônias" },
+          { "file": "assets/gallery/eduardo-rodrigues/eduardo-rodrigues-web-radio-2009-v05.jpg", "caption": "Em trabalho na HBO" },
+          { "file": "assets/gallery/eduardo-rodrigues/eduardo-rodrigues-web-radio-2009-v03.jpg", "caption": "Apresentador" },
+          { "file": "assets/gallery/eduardo-rodrigues/IMG-20210614-WA0133.jpg", "caption": "Eduvoice Estúdio" }
+        ]
+      },
+      "estudio": {
+        "url": "https://edurodrigues.com.br/estudio/",
+        "wpId": 1422,
+        "title": "Estúdio",
+        "items": [
+          { "file": "assets/gallery/estudio/eduardo-rodrigues-estudio-2007-v03.jpg", "caption": "Locução Comercial/Estúdio Gravação" },
+          { "file": "assets/gallery/estudio/eduardo-rodrigues-estudio-2007-v01.jpg", "caption": "Locução Comercial/Estúdio Gravação" },
+          { "file": "assets/gallery/estudio/IMG-20210614-WA0126.jpg", "caption": "Gravando-Eduvoice Produtora" },
+          { "file": "assets/gallery/estudio/eduardo-rodrigues-web-radio-2009-v07.jpg", "caption": "Gravação no Estudio da HBO-Brasil" },
+          { "file": "assets/gallery/estudio/eduardo-rodrigues-web-radio-2009-v06.jpg", "caption": "Locução Comercial em Estúdio" }
+        ]
+      },
+      "festas": {
+        "url": "https://edurodrigues.com.br/festas/",
+        "wpId": 1429,
+        "title": "Festas",
+        "items": [
+          { "file": "assets/gallery/festas/eduardo-rodrigues-festa-fantasia-debutante-2008.jpg", "caption": "Apresentando Festa de Debutante em Buffet -São Paulo" },
+          { "file": "assets/gallery/festas/eduardo-rodrigues-festa-2007-v02.jpg", "caption": "Mestre de Cerimônias-Baile de Formaturas -Clube Mendes Santos" },
+          { "file": "assets/gallery/festas/eduardo-rodrigues-festa-2007-v01.jpg", "caption": "Mestre de Cerimônias-Baile de Formaturas -Clube Mendes Santos" }
+        ]
+      },
+      "formaturas": {
+        "url": "https://edurodrigues.com.br/formaturas/",
+        "wpId": 1451,
+        "title": "Formaturas",
+        "items": [
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2011-policamp-v03-3.jpg", "caption": "Cobrindo reportagem em TV Corporativa" },
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2011-policamp-v04-3.jpg", "caption": "Em colação de grau, sendo parabenizado." },
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2013-max-planck-v02-3.jpg", "caption": "Conduzindo formatura de 500 alunos da Unimax" },
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2013-faj-3.jpg", "caption": "No púlpito mais um evento" },
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2014-faj-pronatec-4.jpg", "caption": "MC atuando" },
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2014-max-planck-v03-3.jpg", "caption": "Apresentação evento empresarial" },
+          { "file": "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2016-4.jpg", "caption": "Passando roteiro com a produção" }
+        ]
+      },
+      "unusedInLibrary": [
+        "assets/profile/Eduardo-Rodrigues-Web-radio-2009-02-scaled.jpg",
+        "assets/gallery/estudio/eduardo-rodrigues-estudio-2007-v02.jpg",
+        "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2011-policamp-v01-5.jpg",
+        "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2011-policamp-v02-3.jpg",
+        "assets/gallery/formaturas/eduardo-rodrigues-formaturas-2013-max-planck-v01-3.jpg"
+      ]
+    },
+
+    "clientes": {
+      "url": "https://edurodrigues.com.br/clientes/",
+      "wpId": 1372,
+      "title": "Clientes",
+      "intro": "De modo geral atendo clientes nas seguintes áreas:",
+      "segments": [
+        "Agências de marketing",
+        "Estúdios e produtoras",
+        "Emissoras de rádio e televisão",
+        "Empresas diversas",
+        "Sindicatos e associações"
+      ],
+      "logosHeading": "Segue abaixo alguns de meus clientes:",
+      "logos": "ref: clients"
+    },
+
+    "meu-portfolio": {
+      "url": "https://edurodrigues.com.br/meu-portfolio/",
+      "wpId": 1366,
+      "title": "Portfólio",
+      "lastModified": "2021-06-18",
+      "audioDemos": [
+        { "title": "Repertório Completo", "file": "assets/audio/Repertorio_Completo.mp3", "duration": "2:45", "sourceUrl": "https://edurodrigues.com.br/wp-content/uploads/2021/05/Repertorio_Completo-3.mp3" },
+        { "title": "Clássico", "file": "assets/audio/Classico.mp3", "duration": "1:49" },
+        { "title": "Jovem Varejo", "file": "assets/audio/Jovem_Varejo.mp3", "duration": "1:33" },
+        { "title": "Voz Natural", "file": "assets/audio/Voz_Natural.mp3", "duration": "1:24" },
+        { "title": "Chamadas/Vinhetas", "file": "assets/audio/Chamadas_Vinhetas.mp3", "duration": "1:22" },
+        { "title": "URA", "file": "assets/audio/URA.mp3", "duration": "1:29" },
+        { "title": "Institucional", "file": "assets/audio/Institucional.mp3", "duration": "1:19" },
+        { "title": "E-Learning", "file": "assets/audio/E-Learning.mp3", "duration": "1:25" },
+        { "title": "Rádio", "file": "assets/audio/Radio.mp3", "duration": "1:32" }
+      ],
+      "videos": [
+        { "heading": "Disk Biju", "youtubeId": "Y4i-tsEbEfs", "youtubeTitle": "Disk=Biju", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/Y4i-tsEbEfs.jpg" },
+        { "heading": "Reportagem São Paulo Futebol Clube", "youtubeId": "9ik7DlqQRGk", "youtubeTitle": "Reportagem São Paulo Futebol Clube", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/9ik7DlqQRGk.jpg" },
+        { "heading": "Prêmio Prefeito Educador", "youtubeId": "r3-w5sm4uTI", "youtubeTitle": "Prêmio Prefeito Educador 2017 - Eduvoice Produções", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/r3-w5sm4uTI.jpg" },
+        { "heading": "Eduardo Rodrigues - Mestre de Cerimônias", "youtubeId": "Ws7-vCyzTBw", "youtubeTitle": "Eduardo Rodrigues - Mestre de Cerimônias", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/Ws7-vCyzTBw.jpg" },
+        { "heading": "Aduaneiras - Institucional", "youtubeId": "TS9bvyK6mPQ", "youtubeTitle": "Aduaneiras - Institucional", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/TS9bvyK6mPQ.jpg" },
+        { "heading": "Helcla Multi-ação", "youtubeId": "dUQGWjzQr6E", "youtubeTitle": "Helcla Multi Ação", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/dUQGWjzQr6E.jpg" },
+        { "heading": "Gonzales Componentes", "youtubeId": "owamRudMUUo", "youtubeTitle": "Vídeo Institucional - Gonzalez Componetes", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/owamRudMUUo.jpg" },
+        { "heading": "Institucional Eduvoice", "youtubeId": "IiOpIanpKWM", "youtubeTitle": "Institucional Eduvoice Produções", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/IiOpIanpKWM.jpg" },
+        { "heading": "Formatura Online - Unifaj", "youtubeId": "edItHVMONso", "youtubeTitle": "Formatura Online - Unifaj 10/09/2020", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/edItHVMONso.jpg" },
+        { "heading": "Canal Magistral", "youtubeId": "etDKyop-d_E", "youtubeTitle": "Canal Magestral", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/etDKyop-d_E.jpg" },
+        { "heading": "Institucional CEFET", "youtubeId": "BoiphAT3epM", "youtubeTitle": "Video Institucional CEFET-SP", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/BoiphAT3epM.jpg" },
+        { "heading": "Bier Trunk - Divas do Pop", "youtubeId": "KRjqN13hrAM", "youtubeTitle": "Tributo à Divas do POP com Kelly Moore - Bier Trunk Pub Bar - 22/07/2017", "channel": "@eduvoiceestudio", "thumb": "assets/video-thumbs/KRjqN13hrAM.jpg" },
+        { "heading": "Compra Certa - Brastemp", "youtubeId": "krMKClQyl8w", "youtubeTitle": "Compra certa da Brastemp - Vídeo Publicitário", "channel": "@eduvoice7370", "thumb": "assets/video-thumbs/krMKClQyl8w.jpg" }
+      ]
+    },
+
+    "contato": {
+      "url": "https://edurodrigues.com.br/contato/",
+      "wpId": 253,
+      "title": "Contato",
+      "lastModified": "2021-07-22",
+      "blocks": [
+        { "heading": "Endereço", "text": "Avenida Nova Cantareira, 2233 – Conjunto 81\nTucuruvi, São Paulo – SP\n02331-003" },
+        { "heading": "Telefone", "text": "(11)2261-2753 e (11)99615-9398" },
+        { "heading": "E-mail", "text": "locutor@edurodrigues.com.br" }
+      ],
+      "map": "ref: contact.map",
+      "form": "ref: contact.form"
+    }
+  },
+
+  "clients": [
+    { "name": "ABDL", "file": "assets/clients/abdl.jpg" },
+    { "name": "Atlas Editora", "file": "assets/clients/atlasEditora.jpg" },
+    { "name": "Christian Formon", "file": "assets/clients/ChristianFormon.jpg" },
+    { "name": "Folha Metropolitana", "file": "assets/clients/folhaMetropolitana.jpg" },
+    { "name": "HBC", "file": "assets/clients/hbc.jpg" },
+    { "name": "Herba", "file": "assets/clients/herba.jpg" },
+    { "name": "Martmark", "file": "assets/clients/martmark.jpg" },
+    { "name": "Metro News", "file": "assets/clients/metro-news.jpg" },
+    { "name": "Monitor", "file": "assets/clients/monitor.jpg" },
+    { "name": "Mundo", "file": "assets/clients/Mundo-.jpg" },
+    { "name": "Nextel", "file": "assets/clients/nextel.jpg" },
+    { "name": "Prefeitura de Guarulhos", "file": "assets/clients/PrefGuarulhos.jpg" },
+    { "name": "Prefeitura de Suzano", "file": "assets/clients/PrefSuzano.jpg" },
+    { "name": "PT", "file": "assets/clients/pt.jpg" },
+    { "name": "PUC", "file": "assets/clients/PUC.jpg" },
+    { "name": "Segurança SP", "file": "assets/clients/segurancaSP.jpg" },
+    { "name": "SENAC", "file": "assets/clients/senac.jpg" },
+    { "name": "Shizen", "file": "assets/clients/shizen.jpg" },
+    { "name": "Soccer", "file": "assets/clients/soccer.jpg" },
+    { "name": "Starbyte", "file": "assets/clients/Starbyte.jpg" },
+    { "name": "Unidas", "file": "assets/clients/unidas.jpg" },
+    { "name": "Vigorito", "file": "assets/clients/vigorito.jpg" },
+    { "name": "Vila Nova", "file": "assets/clients/vilanova.jpg" },
+    { "name": "ZN", "file": "assets/clients/ZN.jpg" }
+  ],
+
+  "discardedDemoContent": {
+    "_note": "Conteúdo de demonstração do tema (2017) ainda publicado e presente no sitemap. Não é do cliente — não migrar; redirecionar (301) para a home.",
+    "pages": [
+      "/pagina-exemplo/", "/home-revolution-slider-full-screen/", "/home-slider-simple/", "/about-us/", "/about-us-2/", "/about-us-3/",
+      "/our-services/", "/our-service-2/", "/icons/", "/buttons/", "/toggles/", "/iconboxs/", "/portfolio-grid/",
+      "/portfolio-grid-fullwidth/", "/portfolio-slider/", "/portfolio-slider-fullwidth/", "/shop/", "/cart/", "/checkout/",
+      "/blog/", "/one-page/", "/sample-page/"
+    ],
+    "services": [
+      "/services/construction-consultant/", "/services/resconstruction-services/", "/services/architectural-design/",
+      "/services/green-building/", "/services/roofing-flooring-services/", "/services/electrical-systems/"
+    ],
+    "team": [
+      "/team/richard-wagner/", "/team/sarah-spence/", "/team/john-halpern/", "/team/tommy-atkins/", "/team/john-joe/",
+      "/team/richard-wagner-2/", "/team/sarah-spence-2/", "/team/john-halpern-2/", "/team/tommy-atkins-2/"
+    ],
+    "author": ["/author/usga-20-adfghb/"]
+  }
+}
