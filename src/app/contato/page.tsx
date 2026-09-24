@@ -1,8 +1,9 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 
+import radio2009 from "@/assets/images/gallery/estudio/locucao-estudio-2009.jpg";
 import { contact, social } from "@/content/site";
-import { Container, JsonLd, Section, SectionHeading } from "@/components/ui/primitives";
-import { PageHero } from "@/components/sections/blocks";
+import { Container, JsonLd, Section, SectionTitle } from "@/components/ui/primitives";
+import { PageBanner } from "@/components/sections/page-banner";
 import { LeadForm } from "@/components/forms/lead-form";
 import { MapFacade } from "@/components/media/map-facade";
 import { SocialIcon } from "@/components/icons/social-icon";
@@ -13,70 +14,88 @@ import { whatsappUrl } from "@/lib/utils";
 export const metadata = pageMetadata({
   title: "Contato",
   description:
-    "Solicite um orçamento de locução, mestre de cerimônias, apresentação, celebração, palestra ou curso com Eduardo Rodrigues. WhatsApp, telefone, e-mail e endereço no Tucuruvi, São Paulo.",
+    "Fale com Eduardo Rodrigues: WhatsApp (11) 99615-9398, telefone (11) 2261-2753, e-mail e endereço na Avenida Nova Cantareira, Tucuruvi, São Paulo.",
   path: "/contato/",
 });
 
 export default function ContatoPage() {
   const { address } = contact;
-  const channels = [
-    { icon: WhatsAppIcon, label: "WhatsApp", value: contact.whatsappLabel, href: whatsappUrl() },
-    ...contact.phones.map((p) => ({ icon: Phone, label: "Telefone", value: p.label, href: p.href })),
-    { icon: Mail, label: "E-mail", value: contact.email, href: `mailto:${contact.email}` },
+  const cards = [
+    {
+      icon: WhatsAppIcon,
+      title: "WhatsApp",
+      lines: [{ label: contact.whatsappLabel, href: whatsappUrl() }],
+    },
+    {
+      icon: Phone,
+      title: "Telefone",
+      lines: contact.phones.map((p) => ({ label: p.label, href: p.href })),
+    },
+    {
+      icon: Mail,
+      title: "E-mail",
+      lines: contact.emails.map((email) => ({ label: email, href: `mailto:${email}` })),
+    },
+    {
+      icon: MapPin,
+      title: "Endereço",
+      lines: [
+        { label: address.street, href: contact.mapsUrl },
+        { label: `${address.neighborhood}, ${address.city} – ${address.state}`, href: contact.mapsUrl },
+        { label: address.zip, href: contact.mapsUrl },
+      ],
+    },
   ];
 
   return (
     <>
-      <PageHero
+      <PageBanner
+        image={radio2009}
+        position="55% 30%"
         eyebrow="Contato"
-        title="Vamos conversar."
+        title="Contato"
         lead="Conte o que você precisa — locução, evento, palestra ou curso — e receba uma proposta personalizada."
+        crumbs={[{ name: "Contato", path: "/contato/" }]}
       />
 
-      <Section tone="light" className="py-16 sm:py-24" aria-labelledby="form-titulo">
+      <section aria-label="Canais de contato" className="bg-paper py-12">
+        <Container>
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {cards.map((card) => (
+              <li key={card.title} className="rounded-xl bg-white p-6 ring-1 ring-black/5">
+                <span className="bg-brand-500 text-ink-900 grid size-12 place-items-center rounded-lg">
+                  <card.icon className="size-6" aria-hidden="true" />
+                </span>
+                <h2 className="font-display mt-4 text-lg font-extrabold">{card.title}</h2>
+                <ul className="mt-2 space-y-1 text-neutral-700">
+                  {card.lines.map((line) => (
+                    <li key={line.label} className="break-all">
+                      <a
+                        href={line.href}
+                        {...(line.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+                        className="hover:text-ink-900 hover:underline"
+                      >
+                        {line.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <Section tone="white" aria-labelledby="form-titulo">
         <Container className="grid grid-cols-1 gap-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <SectionHeading id="form-titulo" eyebrow="Formulário" title="Solicite seu orçamento." />
+            <SectionTitle id="form-titulo" eyebrow="Formulário" title="Solicite seu orçamento" />
             <LeadForm className="mt-10" />
           </div>
-
-          <aside className="space-y-8 lg:col-span-5" aria-label="Outros canais">
-            <ul className="divide-ink-900/10 divide-y rounded-3xl bg-white ring-1 ring-ink-900/10">
-              {channels.map((channel) => (
-                <li key={channel.value}>
-                  <a
-                    href={channel.href}
-                    {...(channel.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
-                    className="hover:bg-sand-100/60 flex items-center gap-4 p-5 transition-colors first:rounded-t-3xl last:rounded-b-3xl"
-                  >
-                    <span className="bg-ink-950 text-brand-400 grid size-11 shrink-0 place-items-center rounded-full">
-                      <channel.icon className="size-5" aria-hidden="true" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-xs tracking-[0.14em] text-stone-500 uppercase">{channel.label}</span>
-                      <span className="block truncate font-medium">{channel.value}</span>
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-
+          <aside className="space-y-6 lg:col-span-5" aria-label="Mapa e redes sociais">
+            <MapFacade eager className="aspect-square sm:aspect-[4/3]" />
             <div>
-              <h2 className="flex items-center gap-2 text-xs font-semibold tracking-[0.18em] text-stone-600 uppercase">
-                <MapPin className="size-4" aria-hidden="true" />
-                Endereço
-              </h2>
-              <p className="mt-3 leading-relaxed">
-                {address.street}
-                <br />
-                {address.neighborhood}, {address.city} – {address.state}, {address.zip}
-              </p>
-            </div>
-
-            <MapFacade />
-
-            <div>
-              <h2 className="text-xs font-semibold tracking-[0.18em] text-stone-600 uppercase">Redes sociais</h2>
+              <h2 className="font-display text-sm font-bold tracking-[0.16em] uppercase">Redes sociais</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {social.map((s) => (
                   <li key={s.network}>
@@ -84,7 +103,7 @@ export default function ContatoPage() {
                       href={s.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="border-ink-900/15 hover:border-ink-900/40 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium"
+                      className="font-display hover:border-ink-900 inline-flex items-center gap-2 rounded-lg border-2 border-neutral-300 px-4 py-2 text-sm font-bold"
                     >
                       <SocialIcon network={s.network} className="size-4" />
                       {s.label}

@@ -2,10 +2,9 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-/** Monograma "ER" provisório (favicon/ícone) até a entrega do logo vetorial. */
+/** Ícone "ER" nas cores do logo (amarelo #F7C500 e preto #211919). */
 export async function monogram(px: number) {
-  const serif = await readFile(join(process.cwd(), "src/assets/fonts/InstrumentSerif-Regular.ttf"));
-  const dot = Math.max(3, Math.round(px * 0.12));
+  const font = await readFile(join(process.cwd(), "src/assets/fonts/montserrat-latin-800-normal.woff"));
   return new ImageResponse(
     (
       <div
@@ -15,27 +14,15 @@ export async function monogram(px: number) {
           justifyContent: "center",
           width: "100%",
           height: "100%",
-          background: "#0d0c0b",
-          borderRadius: px * 0.22,
-          position: "relative",
+          background: "#211919",
+          borderRadius: px * 0.2,
         }}
       >
-        <div style={{ fontFamily: "Instrument Serif", fontSize: px * 0.62, color: "#f5b85a", lineHeight: 1, marginTop: px * 0.04 }}>
+        <div style={{ fontFamily: "Montserrat", fontWeight: 800, fontSize: px * 0.5, color: "#F7C500", letterSpacing: -px * 0.02 }}>
           ER
         </div>
-        <div
-          style={{
-            position: "absolute",
-            top: px * 0.14,
-            right: px * 0.14,
-            width: dot,
-            height: dot,
-            borderRadius: dot,
-            background: "#e5484d",
-          }}
-        />
       </div>
     ),
-    { width: px, height: px, fonts: [{ name: "Instrument Serif", data: serif, style: "normal", weight: 400 }] },
+    { width: px, height: px, fonts: [{ name: "Montserrat", data: font, style: "normal", weight: 800 }] },
   );
 }

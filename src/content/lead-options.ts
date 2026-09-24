@@ -8,3 +8,11 @@ export const SERVICE_OPTIONS = [
   "Curso",
   "Outro",
 ];
+
+/** Opção pré-selecionada no formulário de cada página de serviço. */
+export const SERVICE_OPTION_BY_SLUG: Record<string, string> = {
+  locucao: "Locução",
+  "mestre-de-cerimonias": "Mestre de cerimônias",
+  apresentador: "Apresentador",
+  celebrante: "Celebrante",
+};

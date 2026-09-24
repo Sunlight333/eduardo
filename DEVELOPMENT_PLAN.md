@@ -10,6 +10,13 @@
 > - Animations use CSS only; the `motion` library wasn't needed.
 > - The OG image ships as a static JPEG because a generated PNG was too large for WhatsApp previews.
 > - Talks and courses use the design system directly; there was no separate hi-fi design step.
+>
+> **Redesign (2026-09-24, after the client's feedback on the first version):**
+> - **Visual identity:** rebuilt from the original material: the logo GIF, the logo's yellow and black, and the old site's Montserrat/Lato.
+> - **Backgrounds:** every hero and banner background is a scraped photo.
+> - **Navigation:** now uses dropdowns, including a Portfólio mega menu.
+> - **Old URLs:** the old `/clientes/` and five gallery URLs are real pages again, instead of redirects.
+> - **Material:** all scraped assets and text are now used.
 
 ---
 

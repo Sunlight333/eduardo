@@ -1,11 +1,13 @@
 import { ArrowRight, Building2, MonitorPlay, Users } from "lucide-react";
 
+import heroCongressos from "@/assets/images/hero/realizacao-de-congressos.jpg";
 import palcoIbgc from "@/assets/images/eduardo/palco-congresso-ibgc.jpg";
 import { talkAudiences, talkFormats, talkPillars } from "@/content/talks";
-import { featuredVideo } from "@/content/videos";
+import { videosById } from "@/content/videos";
 import { testimonials } from "@/content/testimonials";
-import { ButtonLink, Container, JsonLd, Section, SectionHeading } from "@/components/ui/primitives";
-import { PageHero, StatsBar, Testimonials } from "@/components/sections/blocks";
+import { ButtonLink, Container, JsonLd, Section, SectionTitle } from "@/components/ui/primitives";
+import { PageBanner } from "@/components/sections/page-banner";
+import { StatsBand, Testimonials } from "@/components/sections/blocks";
 import { LogoMarquee } from "@/components/sections/logos";
 import { YouTubeFacade } from "@/components/media/youtube-facade";
 import { LeadForm } from "@/components/forms/lead-form";
@@ -19,47 +21,40 @@ export const metadata = pageMetadata({
 });
 
 const formatIcons = [Users, MonitorPlay, Building2];
+const [stageVideo, ...moreVideos] = videosById(["Ws7-vCyzTBw", "r3-w5sm4uTI", "edItHVMONso"]);
 
 export default function PalestrasPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Palestras e workshops"
-        title={
-          <>
-            Eduardo Rodrigues <em className="text-brand-400">no palco</em> do seu evento.
-          </>
-        }
+      <PageBanner
+        image={heroCongressos}
+        position="50% 40%"
+        align="right"
+        eyebrow="Palestrante"
+        title="Eduardo Rodrigues no palco do seu evento"
         lead="Oratória, voz e comunicação com quem passou mais de 30 anos entre o microfone, as câmeras e o púlpito."
-        image={palcoIbgc}
-        imageAlt="Eduardo Rodrigues discursando no púlpito do 15º Congresso IBGC"
+        crumbs={[{ name: "Palestras", path: "/palestras/" }]}
       >
         <ButtonLink href="#proposta" size="lg">
           Solicitar proposta
           <ArrowRight className="size-5" aria-hidden="true" />
         </ButtonLink>
-      </PageHero>
+      </PageBanner>
 
-      <Section tone="light" aria-labelledby="formatos-titulo">
+      <Section tone="white" aria-labelledby="formatos-titulo">
         <Container>
-          <SectionHeading
-            id="formatos-titulo"
-            eyebrow="Formatos"
-            title="Qual o formato ideal para a sua empresa?"
-            align="center"
-            className="mx-auto"
-          />
-          <ul className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <SectionTitle id="formatos-titulo" eyebrow="Formatos" title="Qual o formato ideal para a sua empresa?" align="center" />
+          <ul className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {talkFormats.map((format, index) => {
               const Icon = formatIcons[index % formatIcons.length];
               return (
-                <li key={format.title} className="flex flex-col rounded-3xl bg-white p-8 ring-1 ring-ink-900/10">
-                  <span className="bg-ink-950 text-brand-400 grid size-12 place-items-center rounded-2xl">
-                    <Icon className="size-6" aria-hidden="true" />
+                <li key={format.title} className="bg-paper hover:border-brand-500 flex flex-col rounded-2xl border-t-4 border-transparent p-8 transition-colors">
+                  <span className="bg-ink-900 text-brand-500 grid size-14 place-items-center rounded-xl">
+                    <Icon className="size-7" aria-hidden="true" />
                   </span>
-                  <h3 className="font-display mt-6 text-3xl">{format.title}</h3>
-                  <p className="mt-3 flex-1 leading-relaxed text-stone-600">{format.description}</p>
-                  <ButtonLink href="#proposta" variant="outline-light" className="mt-8 self-start">
+                  <h3 className="font-display mt-6 text-2xl font-extrabold">{format.title}</h3>
+                  <p className="mt-3 flex-1 leading-relaxed text-neutral-600">{format.description}</p>
+                  <ButtonLink href="#proposta" variant="dark" className="mt-8 self-start">
                     Solicitar proposta
                   </ButtonLink>
                 </li>
@@ -69,60 +64,54 @@ export default function PalestrasPage() {
         </Container>
       </Section>
 
-      <Section tone="darker" aria-labelledby="palco-titulo">
-        <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-5">
-              <SectionHeading
-                dark
-                id="palco-titulo"
-                eyebrow="No palco"
-                title="O que acontece quando um comunicador de rádio e TV sobe ao palco?"
-                lead="Clareza, ritmo e presença — a mesma técnica que conduz congressos e formaturas, aplicada à comunicação da sua equipe."
-              />
-              <ButtonLink href="#proposta" className="mt-9">
-                Contratar palestra
-              </ButtonLink>
-            </div>
-            <div className="lg:col-span-7">
-              <YouTubeFacade video={featuredVideo} sizes="(min-width: 1024px) 58vw, 100vw" />
-            </div>
+      <Section tone="dark" aria-labelledby="palco-titulo">
+        <Container className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5">
+            <SectionTitle
+              dark
+              id="palco-titulo"
+              eyebrow="No palco"
+              title="O que acontece quando um comunicador de rádio e TV sobe ao palco?"
+              lead="Clareza, ritmo e presença — a mesma técnica que conduz congressos e formaturas, aplicada à comunicação da sua equipe."
+            />
+            <ButtonLink href="#proposta" className="mt-9">
+              Contratar palestra
+            </ButtonLink>
           </div>
-          <div className="mt-16 border-t border-white/10 pt-14">
-            <StatsBar />
+          <div className="lg:col-span-7">
+            <YouTubeFacade video={stageVideo} sizes="(min-width: 1024px) 58vw, 100vw" />
+            <div className="mt-5 grid grid-cols-2 gap-5">
+              {moreVideos.map((video) => (
+                <div key={video.id}>
+                  <YouTubeFacade video={video} sizes="(min-width: 1024px) 28vw, 50vw" />
+                  <p className="font-display mt-2 text-sm font-bold">{video.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Container>
       </Section>
 
-      <section aria-labelledby="clientes-titulo" className="bg-sand-50 py-16 sm:py-20">
-        <Container>
-          <h2 id="clientes-titulo" className="font-display text-center text-3xl sm:text-4xl">
-            Marcas e instituições que já confiaram no trabalho
-          </h2>
-        </Container>
-        <LogoMarquee className="mt-10" />
-      </section>
+      <StatsBand image={palcoIbgc} position="30% 40%" />
 
-      <Section tone="sand" aria-labelledby="pilares-titulo">
+      <Section tone="paper" aria-labelledby="pilares-titulo">
         <Container>
-          <SectionHeading
-            id="pilares-titulo"
-            eyebrow="Pilares de conteúdo"
-            title="Temas personalizados para a sua estrutura, time e necessidade."
-          />
-          <ol className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3">
+          <SectionTitle id="pilares-titulo" eyebrow="Pilares de conteúdo" title="Personalize a palestra para a sua estrutura, time e necessidade" />
+          <ol className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
             {talkPillars.map((pillar, index) => (
-              <li key={pillar.title} className="rounded-3xl bg-white p-8 ring-1 ring-ink-900/10">
-                <span className="font-display text-brand-700 text-5xl">{String(index + 1).padStart(2, "0")}</span>
-                <h3 className="font-display mt-6 text-3xl">{pillar.title}</h3>
-                <p className="mt-3 leading-relaxed text-stone-600">{pillar.description}</p>
+              <li key={pillar.title} className="rounded-2xl bg-white p-8 ring-1 ring-black/5">
+                <span className="font-display bg-brand-500 text-ink-900 grid size-12 place-items-center rounded-full text-lg font-extrabold">
+                  {index + 1}
+                </span>
+                <h3 className="font-display mt-6 text-2xl font-extrabold">{pillar.title}</h3>
+                <p className="mt-3 leading-relaxed text-neutral-600">{pillar.description}</p>
               </li>
             ))}
           </ol>
-          <div className="mt-12 flex flex-wrap items-center gap-2">
-            <span className="mr-2 text-sm font-semibold text-stone-600">Ideal para:</span>
+          <div className="mt-10 flex flex-wrap items-center gap-2">
+            <span className="font-display mr-2 text-sm font-bold">Ideal para:</span>
             {talkAudiences.map((audience) => (
-              <span key={audience} className="border-ink-900/15 rounded-full border bg-white/70 px-3.5 py-1.5 text-sm">
+              <span key={audience} className="rounded-full bg-white px-4 py-2 text-sm ring-1 ring-black/10">
                 {audience}
               </span>
             ))}
@@ -130,14 +119,17 @@ export default function PalestrasPage() {
         </Container>
       </Section>
 
+      <section aria-labelledby="clientes-titulo" className="bg-white py-16 sm:py-20">
+        <Container>
+          <SectionTitle id="clientes-titulo" eyebrow="Clientes" title="Marcas e instituições que já confiaram no trabalho" align="center" />
+        </Container>
+        <LogoMarquee className="mt-10" />
+      </section>
+
       {testimonials.length > 0 && (
-        <Section tone="light" aria-labelledby="depoimentos-titulo">
+        <Section tone="paper" aria-labelledby="depoimentos-titulo">
           <Container>
-            <SectionHeading
-              id="depoimentos-titulo"
-              eyebrow="Depoimentos"
-              title="Histórias que vão além do palco."
-            />
+            <SectionTitle id="depoimentos-titulo" eyebrow="Depoimentos" title="Histórias que vão além do palco" align="center" />
             <div className="mt-12">
               <Testimonials items={testimonials} />
             </div>
@@ -145,14 +137,14 @@ export default function PalestrasPage() {
         </Section>
       )}
 
-      <Section tone="darker" id="proposta" aria-labelledby="proposta-titulo">
+      <Section tone="dark" id="proposta" aria-labelledby="proposta-titulo">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading
+            <SectionTitle
               dark
               id="proposta-titulo"
               eyebrow="Proposta"
-              title="Contrate Eduardo Rodrigues para o seu evento."
+              title="Contrate Eduardo Rodrigues para o seu evento"
               lead="Conte o formato, a data e o público. A proposta é montada sob medida para o seu objetivo."
             />
           </div>

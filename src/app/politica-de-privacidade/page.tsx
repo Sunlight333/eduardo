@@ -1,6 +1,6 @@
 import { contact, site } from "@/content/site";
 import { Container, Section } from "@/components/ui/primitives";
-import { PageHero } from "@/components/sections/blocks";
+import { PageBanner } from "@/components/sections/page-banner";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -60,14 +60,14 @@ const sections = [
 export default function PrivacidadePage() {
   return (
     <>
-      <PageHero eyebrow="LGPD" title="Política de privacidade" lead="Transparência sobre os dados enviados por este site." />
-      <Section tone="light" className="py-16 sm:py-20">
+      <PageBanner eyebrow="LGPD" title="Política de privacidade" lead="Transparência sobre os dados enviados por este site." crumbs={[{ name: "Política de privacidade", path: "/politica-de-privacidade/" }]} />
+      <Section tone="white" className="py-16 sm:py-20">
         <Container className="max-w-3xl">
           <div className="space-y-10">
             {sections.map((section) => (
               <section key={section.title}>
-                <h2 className="font-display text-3xl">{section.title}</h2>
-                <div className="mt-3 space-y-3 leading-relaxed text-stone-700">
+                <h2 className="font-display text-2xl font-extrabold">{section.title}</h2>
+                <div className="mt-3 space-y-3 leading-relaxed text-neutral-700">
                   {section.body.map((paragraph) => (
                     <p key={paragraph.slice(0, 24)}>{paragraph}</p>
                   ))}

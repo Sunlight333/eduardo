@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -10,10 +9,6 @@ import type { GalleryPhoto } from "@/content/gallery";
 import { cx } from "@/lib/utils";
 
 type Filter = GalleryCategory | "todas";
-
-function isCategory(value: string | null): value is GalleryCategory {
-  return galleryCategories.some((c) => c.slug === value);
-}
 
 export function Gallery({
   photos,
@@ -53,10 +48,10 @@ export function Gallery({
               aria-pressed={category === c.slug}
               onClick={() => setCategory(c.slug)}
               className={cx(
-                "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                "font-display rounded-lg border-2 px-4 py-2 text-sm font-bold transition-colors",
                 category === c.slug
-                  ? "border-ink-900 bg-ink-900 text-sand-50"
-                  : "border-ink-900/15 text-ink-800 hover:border-ink-900/40",
+                  ? "border-ink-900 bg-ink-900 text-white"
+                  : "border-neutral-300 text-ink-800 hover:border-ink-900",
               )}
             >
               {c.label}
@@ -71,7 +66,7 @@ export function Gallery({
             <button
               type="button"
               onClick={() => setOpenIndex(index)}
-              className="group bg-sand-200 relative block aspect-[4/3] w-full overflow-hidden rounded-xl"
+              className="group relative block aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-200"
               aria-label={`Ampliar foto: ${photo.caption}`}
             >
               <Image
@@ -149,11 +144,4 @@ export function Gallery({
       </dialog>
     </div>
   );
-}
-
-/** Lê ?galeria= (usado pelos redirects das antigas páginas de galeria). */
-export function GalleryFromUrl({ photos }: { photos: GalleryPhoto[] }) {
-  const param = useSearchParams().get("galeria");
-  const initial = isCategory(param) ? param : "todas";
-  return <Gallery key={initial} photos={photos} initialCategory={initial} />;
 }

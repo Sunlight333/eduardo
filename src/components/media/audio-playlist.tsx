@@ -68,7 +68,7 @@ export function AudioPlaylist({ demos, className }: { demos: Demo[]; className?:
   }
 
   return (
-    <div className={cx("bg-ink-900 overflow-hidden rounded-3xl border border-white/10 text-sand-50", className)}>
+    <div className={cx("bg-ink-900 overflow-hidden rounded-2xl text-white shadow-2xl shadow-black/20", className)}>
       <audio
         ref={audioRef}
         preload="none"
@@ -87,17 +87,17 @@ export function AudioPlaylist({ demos, className }: { demos: Demo[]; className?:
           <button
             type="button"
             onClick={() => select(active)}
-            className="bg-brand-500 text-ink-950 hover:bg-brand-400 grid size-16 shrink-0 place-items-center rounded-full transition-colors"
+            className="bg-brand-500 text-ink-900 hover:bg-brand-400 grid size-16 shrink-0 place-items-center rounded-full transition-colors"
             aria-label={playing ? `Pausar ${track.title}` : `Tocar ${track.title}`}
           >
             {playing ? <Pause className="size-7 fill-current" /> : <Play className="size-7 translate-x-0.5 fill-current" />}
           </button>
           <div className="min-w-0">
-            <p className="text-xs font-semibold tracking-[0.18em] text-stone-400 uppercase">
+            <p className="font-display text-brand-400 text-xs font-bold tracking-[0.18em] uppercase">
               {playing ? "Tocando agora" : "Demo de voz"}
             </p>
-            <p className="font-display mt-1 truncate text-3xl">{track.title}</p>
-            <p className="mt-1 truncate text-sm text-stone-400">{track.description}</p>
+            <p className="font-display mt-1 truncate text-2xl font-extrabold">{track.title}</p>
+            <p className="mt-1 truncate text-sm text-white/60">{track.description}</p>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ export function AudioPlaylist({ demos, className }: { demos: Demo[]; className?:
               aria-hidden="true"
               className={cx(
                 "flex-1 rounded-full transition-colors duration-150",
-                i / BAR_COUNT < progress ? "bg-brand-400" : "bg-white/15",
+                i / BAR_COUNT < progress ? "bg-brand-500" : "bg-white/15",
               )}
               style={{ height: `${height * 100}%` }}
             />
@@ -125,7 +125,7 @@ export function AudioPlaylist({ demos, className }: { demos: Demo[]; className?:
             className="absolute inset-0 size-full cursor-pointer opacity-0"
           />
         </div>
-        <div className="mt-2 flex justify-between text-xs text-stone-500 tabular-nums">
+        <div className="mt-2 flex justify-between text-xs text-white/50 tabular-nums">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>
@@ -142,21 +142,21 @@ export function AudioPlaylist({ demos, className }: { demos: Demo[]; className?:
                 aria-label={isActive && playing ? `Pausar ${demo.title}` : `Tocar ${demo.title}`}
                 className={cx(
                   "flex w-full items-center gap-4 px-6 py-3.5 text-left transition-colors sm:px-8",
-                  isActive ? "bg-white/5" : "hover:bg-white/[0.03]",
+                  isActive ? "bg-white/10" : "hover:bg-white/5",
                 )}
               >
-                <span className="grid w-6 shrink-0 place-items-center text-sm text-stone-500 tabular-nums">
+                <span className="grid w-6 shrink-0 place-items-center text-sm text-white/40 tabular-nums">
                   {isActive && playing ? (
-                    <AudioLines className="text-brand-400 size-4" aria-hidden="true" />
+                    <AudioLines className="text-brand-500 size-4" aria-hidden="true" />
                   ) : (
                     String(index + 1).padStart(2, "0")
                   )}
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className={cx("block truncate font-medium", isActive && "text-brand-400")}>{demo.title}</span>
-                  <span className="hidden truncate text-sm text-stone-500 sm:block">{demo.description}</span>
+                  <span className={cx("font-display block truncate font-bold", isActive && "text-brand-500")}>{demo.title}</span>
+                  <span className="hidden truncate text-sm text-white/50 sm:block">{demo.description}</span>
                 </span>
-                <span className="text-sm text-stone-500 tabular-nums">{formatTime(demo.duration)}</span>
+                <span className="text-sm text-white/50 tabular-nums">{formatTime(demo.duration)}</span>
               </button>
             </li>
           );

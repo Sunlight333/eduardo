@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const INTERVAL_MS = 2400;
+const INTERVAL_MS = 2200;
 
 /** Alterna as especialidades como no hero do site antigo, respeitando movimento reduzido. */
 export function RoleRotator({ roles }: { roles: string[] }) {
@@ -17,7 +17,7 @@ export function RoleRotator({ roles }: { roles: string[] }) {
   return (
     <span className="inline-grid">
       <span className="sr-only">{roles.join(", ")}</span>
-      <span key={index} aria-hidden="true" className="animate-role-in text-brand-400 font-display italic">
+      <span key={index} aria-hidden="true" className="animate-rise text-brand-400">
         {roles[index]}
       </span>
     </span>

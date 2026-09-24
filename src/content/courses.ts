@@ -1,8 +1,8 @@
 import type { StaticImageData } from "next/image";
 
-import estudioMicrofone from "@/assets/images/eduardo/estudio-microfone-2021.jpg";
 import palcoIbgc from "@/assets/images/eduardo/palco-congresso-ibgc.jpg";
-import locucaoPanoramica from "@/assets/images/eduardo/locucao-estudio-panoramica.jpg";
+import locucaoPanoramica from "@/assets/images/hero/locucao.jpg";
+import estudio2007 from "@/assets/images/gallery/estudio/locucao-comercial-2007-3.jpg";
 import podioFormatura from "@/assets/images/gallery/formaturas/max-planck-2013-2.jpg";
 
 export type Modality = "online" | "presencial";
@@ -87,7 +87,7 @@ export const courses: Course[] = [
     modality: "presencial",
     draft: true,
     summary: "Prática no estúdio da sede com correção individual a cada exercício.",
-    image: estudioMicrofone,
+    image: estudio2007,
     imageAlt: "Eduardo Rodrigues diante do microfone no estúdio",
     forWhom: ["Quem quer se profissionalizar em locução", "Radialistas em formação"],
     outcomes: ["Gravações de demo ao final do curso", "Técnica vocal aplicada", "Noções de mercado"],

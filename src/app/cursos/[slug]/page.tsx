@@ -4,8 +4,8 @@ import { CalendarDays, Check, Clock, MapPin, MonitorPlay, Wallet } from "lucide-
 
 import { getCourse, modalities, visibleCourses } from "@/content/courses";
 import { contact } from "@/content/site";
-import { ButtonLink, Container, JsonLd, Section, SectionHeading } from "@/components/ui/primitives";
-import { PageHero } from "@/components/sections/blocks";
+import { ButtonLink, Container, JsonLd, Section, SectionTitle } from "@/components/ui/primitives";
+import { PageBanner } from "@/components/sections/page-banner";
 import { LeadForm } from "@/components/forms/lead-form";
 import { breadcrumbJsonLd, courseJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -42,11 +42,20 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
   return (
     <>
       {course.draft && (
-        <div className="bg-onair px-4 py-2 text-center text-sm font-semibold text-white">
+        <div className="font-display bg-red-600 px-4 py-2 text-center text-sm font-bold text-white">
           Rascunho: conteúdo provisório, visível apenas em desenvolvimento/preview.
         </div>
       )}
-      <PageHero eyebrow={modality.title} title={course.title} lead={course.summary} image={course.image} imageAlt={course.imageAlt}>
+      <PageBanner
+        image={course.image}
+        eyebrow={modality.title}
+        title={course.title}
+        lead={course.summary}
+        crumbs={[
+          { name: "Cursos", path: "/cursos/" },
+          { name: course.title, path },
+        ]}
+      >
         {course.checkoutUrl ? (
           <ButtonLink href={course.checkoutUrl} size="lg">
             Inscrever-se
@@ -56,17 +65,17 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
             {course.modality === "online" ? "Quero me inscrever" : "Garantir minha vaga"}
           </ButtonLink>
         )}
-      </PageHero>
+      </PageBanner>
 
-      <section aria-label="Resumo do curso" className="bg-ink-900 text-sand-50">
+      <section aria-label="Resumo do curso" className="bg-brand-500 text-ink-900">
         <Container>
           <dl className="grid grid-cols-2 gap-6 py-8 lg:grid-cols-4">
             {facts.map((fact) => (
               <div key={fact.label} className="flex items-start gap-3">
-                <fact.icon className="text-brand-400 mt-0.5 size-5 shrink-0" aria-hidden="true" />
+                <fact.icon className="mt-0.5 size-5 shrink-0" aria-hidden="true" />
                 <div>
-                  <dt className="text-xs tracking-[0.14em] text-stone-400 uppercase">{fact.label}</dt>
-                  <dd className="mt-1 font-medium">{fact.value}</dd>
+                  <dt className="font-display text-xs font-bold tracking-[0.14em] uppercase">{fact.label}</dt>
+                  <dd className="mt-1">{fact.value}</dd>
                 </div>
               </div>
             ))}
@@ -74,10 +83,10 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
         </Container>
       </section>
 
-      <Section tone="light" aria-labelledby="para-quem-titulo">
+      <Section tone="white" aria-labelledby="para-quem-titulo">
         <Container className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <div>
-            <SectionHeading id="para-quem-titulo" eyebrow="Para quem é" title="Este curso é para você se..." />
+            <SectionTitle id="para-quem-titulo" eyebrow="Para quem é" title="Este curso é para você se..." />
             <ul className="mt-8 space-y-3">
               {course.forWhom.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-lg">
@@ -87,12 +96,12 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
               ))}
             </ul>
           </div>
-          <div className="bg-sand-100 rounded-3xl p-8">
-            <h2 className="text-xs font-semibold tracking-[0.18em] text-stone-600 uppercase">O que você vai conquistar</h2>
+          <div className="bg-ink-900 rounded-2xl p-8 text-white">
+            <h2 className="font-display text-brand-400 text-xs font-bold tracking-[0.2em] uppercase">O que você vai conquistar</h2>
             <ul className="mt-6 space-y-3">
               {course.outcomes.map((item) => (
                 <li key={item} className="flex items-start gap-3">
-                  <Check className="text-brand-700 mt-0.5 size-5 shrink-0" aria-hidden="true" />
+                  <Check className="text-brand-500 mt-0.5 size-5 shrink-0" aria-hidden="true" />
                   {item}
                 </li>
               ))}
@@ -101,17 +110,17 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
         </Container>
       </Section>
 
-      <Section tone="sand" aria-labelledby="conteudo-titulo">
+      <Section tone="paper" aria-labelledby="conteudo-titulo">
         <Container>
-          <SectionHeading id="conteudo-titulo" eyebrow="Conteúdo" title="O que você vai aprender." />
-          <ol className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-2">
+          <SectionTitle id="conteudo-titulo" eyebrow="Conteúdo" title="O que você vai aprender" />
+          <ol className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
             {course.modules.map((module, index) => (
-              <li key={module.title} className="rounded-3xl bg-white p-7 ring-1 ring-ink-900/10">
-                <p className="text-brand-700 text-xs font-semibold tracking-[0.18em] uppercase">Módulo {index + 1}</p>
-                <h3 className="font-display mt-3 text-2xl">{module.title}</h3>
+              <li key={module.title} className="rounded-2xl bg-white p-7 ring-1 ring-black/5">
+                <p className="font-display text-brand-700 text-xs font-bold tracking-[0.18em] uppercase">Módulo {index + 1}</p>
+                <h3 className="font-display mt-3 text-xl font-extrabold">{module.title}</h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {module.topics.map((topic) => (
-                    <li key={topic} className="bg-sand-100 rounded-full px-3 py-1 text-sm">
+                    <li key={topic} className="bg-paper rounded-full px-3 py-1 text-sm">
                       {topic}
                     </li>
                   ))}
@@ -123,29 +132,29 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
       </Section>
 
       {course.modality === "presencial" && (
-        <Section tone="light" aria-labelledby="turmas-titulo">
+        <Section tone="white" aria-labelledby="turmas-titulo">
           <Container className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center">
             <div>
-              <SectionHeading id="turmas-titulo" eyebrow="Turmas" title="Próximas turmas na sede." />
+              <SectionTitle id="turmas-titulo" eyebrow="Turmas" title="Próximas turmas na sede" />
               <ul className="mt-8 space-y-3">
                 {course.classes?.map((c) => (
                   <li key={c.label} className="flex items-center gap-3 text-lg">
                     <CalendarDays className="text-brand-700 size-5" aria-hidden="true" />
                     {c.label}
-                    {c.seats && <span className="text-sm text-stone-500">· {c.seats}</span>}
+                    {c.seats && <span className="text-sm text-neutral-500">· {c.seats}</span>}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-ink-950 rounded-3xl p-8 text-sand-50">
-              <MapPin className="text-brand-400 size-7" aria-hidden="true" />
-              <p className="font-display mt-4 text-2xl">Sede — Tucuruvi</p>
-              <p className="mt-2 text-stone-300">
+            <div className="bg-ink-900 rounded-2xl p-8 text-white">
+              <MapPin className="text-brand-500 size-7" aria-hidden="true" />
+              <p className="font-display mt-4 text-2xl font-extrabold">Sede — Tucuruvi</p>
+              <p className="mt-2 text-white/80">
                 {contact.address.street}
                 <br />
                 {contact.address.neighborhood}, {contact.address.city} – {contact.address.state}, {contact.address.zip}
               </p>
-              <ButtonLink href={contact.mapsUrl} variant="outline-dark" className="mt-6">
+              <ButtonLink href={contact.mapsUrl} variant="outline-light" className="mt-6">
                 Como chegar
               </ButtonLink>
             </div>
@@ -153,14 +162,14 @@ export default async function CursoPage({ params }: PageProps<"/cursos/[slug]">)
         </Section>
       )}
 
-      <Section tone="darker" id="inscricao" aria-labelledby="inscricao-titulo">
+      <Section tone="dark" id="inscricao" aria-labelledby="inscricao-titulo">
         <Container className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeading
+            <SectionTitle
               dark
               id="inscricao-titulo"
               eyebrow="Inscrição"
-              title={course.modality === "online" ? "Quero fazer este curso." : "Quero garantir minha vaga."}
+              title={course.modality === "online" ? "Quero fazer este curso" : "Quero garantir minha vaga"}
               lead="Deixe seus dados e receba as informações de inscrição, datas e valores."
             />
           </div>

@@ -52,9 +52,9 @@ function Field({
   const errorId = `${id}-erro`;
   return (
     <div className={className}>
-      <label htmlFor={id} className={cx("mb-1.5 block text-sm font-medium", tone === "dark" ? "text-stone-300" : "text-ink-800")}>
+      <label htmlFor={id} className={cx("font-display mb-1.5 block text-sm font-bold", tone === "dark" ? "text-white/85" : "text-ink-900")}>
         {label}
-        {required && <span className="text-brand-600"> *</span>}
+        {required && <span className="text-red-600"> *</span>}
       </label>
       {children({ id, ...(error && { "aria-invalid": true, "aria-describedby": errorId }) })}
       {error && (
@@ -122,10 +122,10 @@ export function LeadForm({
   }, [state, variant]);
 
   const inputClass = cx(
-    "block w-full rounded-xl border px-4 py-3 text-base transition-colors outline-none focus:ring-2",
+    "block w-full rounded-lg border px-4 py-3 text-base transition-colors outline-none focus:ring-4",
     tone === "dark"
-      ? "border-white/15 bg-white/5 text-sand-50 [color-scheme:dark] placeholder:text-stone-500 focus:border-brand-400 focus:ring-brand-400/30 aria-[invalid]:border-red-400"
-      : "border-ink-900/15 bg-white text-ink-900 placeholder:text-stone-400 focus:border-brand-600 focus:ring-brand-500/25 aria-[invalid]:border-red-500",
+      ? "border-white/20 bg-white/10 text-white [color-scheme:dark] placeholder:text-white/40 focus:border-brand-500 focus:ring-brand-500/25 aria-[invalid]:border-red-400"
+      : "border-neutral-300 bg-white text-ink-900 placeholder:text-neutral-400 focus:border-brand-500 focus:ring-brand-500/30 aria-[invalid]:border-red-500",
   );
 
   if (state.status === "success") {
@@ -133,14 +133,14 @@ export function LeadForm({
       <div
         role="status"
         className={cx(
-          "rounded-3xl p-8 text-center",
-          tone === "dark" ? "bg-white/5 text-sand-50" : "bg-white ring-1 ring-ink-900/10",
+          "rounded-xl p-8 text-center",
+          tone === "dark" ? "bg-white/10 text-white" : "bg-paper ring-1 ring-black/5",
           className,
         )}
       >
         <CircleCheck className="text-brand-500 mx-auto size-12" aria-hidden="true" />
-        <p className="font-display mt-4 text-3xl">Mensagem enviada!</p>
-        <p className={cx("mt-2", tone === "dark" ? "text-stone-300" : "text-stone-600")}>
+        <p className="font-display mt-4 text-2xl font-extrabold">Mensagem enviada!</p>
+        <p className={cx("mt-2", tone === "dark" ? "text-white/80" : "text-neutral-600")}>
           Obrigado pelo contato. Eduardo retorna em breve. Se preferir, fale agora pelo WhatsApp.
         </p>
         <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={buttonClasses("primary", "md", "mt-6")}>
@@ -243,13 +243,13 @@ export function LeadForm({
       </Field>
 
       <div className="sm:col-span-2">
-        <label className={cx("flex items-start gap-3 text-sm", tone === "dark" ? "text-stone-300" : "text-stone-600")}>
+        <label className={cx("flex items-start gap-3 text-sm", tone === "dark" ? "text-white/80" : "text-neutral-600")}>
           <input
             type="checkbox"
             name="consentimento"
             defaultChecked={values.consentimento === "on"}
             aria-invalid={errors.consentimento ? true : undefined}
-            className="accent-brand-600 mt-0.5 size-4 shrink-0"
+            className="accent-ink-900 mt-0.5 size-4 shrink-0"
             required
           />
           <span>

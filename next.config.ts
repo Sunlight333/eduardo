@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-const gallery = (slug: string) => `/portfolio/?tab=fotos&galeria=${slug}`;
-
 // Voice demos were linked directly from the old WordPress media library.
 // "Repertorio_Completo" was uploaded four times (identical files).
 const legacyAudio: Record<string, string> = {
@@ -20,8 +18,9 @@ const legacyAudio: Record<string, string> = {
 };
 
 const nextConfig: NextConfig = {
-  // The WordPress site used trailing slashes; keeping them preserves every
-  // URL that did not change (/, /servicos/, /contato/) without a redirect.
+  // The WordPress site used trailing slashes; keeping them preserves every URL
+  // that still exists (/, /servicos/, /clientes/, /contato/ and the five gallery
+  // pages) without a redirect.
   trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
@@ -29,12 +28,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/meu-portfolio", destination: "/portfolio/", permanent: true },
-      { source: "/eduardo-rodrigues", destination: "/sobre/", permanent: true },
-      { source: "/clientes", destination: "/sobre/", permanent: true },
-      { source: "/corporativo", destination: gallery("corporativo"), permanent: true },
-      { source: "/formaturas", destination: gallery("formaturas"), permanent: true },
-      { source: "/festas", destination: gallery("festas"), permanent: true },
-      { source: "/estudio", destination: gallery("estudio"), permanent: true },
       ...Object.entries(legacyAudio).map(([file, slug]) => ({
         source: `/wp-content/uploads/2021/05/${file}`,
         destination: `/audio/${slug}.mp3`,

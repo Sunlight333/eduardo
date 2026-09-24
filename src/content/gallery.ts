@@ -38,6 +38,7 @@ import apresentador2 from "@/assets/images/gallery/apresentador/apresentador-200
 import mestre2009 from "@/assets/images/gallery/apresentador/mestre-de-cerimonias-2009.jpg";
 import hbo2009 from "@/assets/images/gallery/apresentador/hbo-2009.jpg";
 import retrato2009 from "@/assets/images/gallery/apresentador/retrato-2009.jpg";
+import retrato2021 from "@/assets/images/eduardo/retrato-2021.jpg";
 
 export type GalleryPhoto = {
   src: StaticImageData;
@@ -78,13 +79,18 @@ export const gallery: GalleryPhoto[] = [
   { src: comercial1, caption: "Locução comercial em estúdio de gravação", year: 2007, category: "estudio" },
   { src: comercial2, caption: "Locução comercial em estúdio de gravação", year: 2007, category: "estudio" },
 
-  { src: apresentador1, caption: "Apresentador", year: 2009, category: "apresentador" },
-  { src: mestre2009, caption: "Mestre de cerimônias", year: 2009, category: "apresentador" },
-  { src: hbo2009, caption: "Em trabalho na HBO", year: 2009, category: "apresentador" },
-  { src: apresentador2, caption: "Apresentador", year: 2009, category: "apresentador" },
-  { src: retrato2009, caption: "Retrato de divulgação", year: 2009, category: "apresentador" },
+  { src: retrato2021, caption: "Eduvoice Estúdio", year: 2021, category: "eduardo-rodrigues" },
+  { src: apresentador1, caption: "Apresentador", year: 2009, category: "eduardo-rodrigues" },
+  { src: mestre2009, caption: "Mestre de cerimônias", year: 2009, category: "eduardo-rodrigues" },
+  { src: hbo2009, caption: "Em trabalho na HBO", year: 2009, category: "eduardo-rodrigues" },
+  { src: apresentador2, caption: "Apresentador", year: 2009, category: "eduardo-rodrigues" },
+  { src: retrato2009, caption: "Retrato de divulgação", year: 2009, category: "eduardo-rodrigues" },
 ];
 
 export function photosIn(...categories: GalleryCategory[]): GalleryPhoto[] {
   return gallery.filter((p) => categories.includes(p.category));
+}
+
+export function galleryCover(category: GalleryCategory): GalleryPhoto {
+  return gallery.find((p) => p.category === category)!;
 }
